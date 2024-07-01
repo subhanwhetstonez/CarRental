@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Car List</title>
+  </head>
+  <body>
+    <h1>Car List</h1>
+    <% if (error) { %>
+    <p><%= error %></p>
+    <% } %>
+    <ul>
+      <% cars.forEach(car => { %>
+      <li>
+        <%= car.make %> <%= car.model %> (<%= car.year %>) -
+        <a href="/api/cars/update/<%= car.id %>">Update</a> |
+        <a href="/api/cars/delete/<%= car.id %>">Delete</a>
+      </li>
+      <% }); %>
+    </ul>
+    <a href="/api/cars/add">Add New Car</a>
+  </body>
+</html>
